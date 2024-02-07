@@ -1,0 +1,27 @@
+.nav-pills .nav-link.active {
+  background: none !important;
+  border-radius: 0px !important;
+}
+
+.nav.nav-pills {
+  background: none !important;
+}
+
+.tab {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab button.active {
+  border-bottom: 3px dashed goldenrod;
+}
+
+.active {
+  text-shadow: none;
+}
+
+.nav-link{
+  color: #ffffff !important;
+}
