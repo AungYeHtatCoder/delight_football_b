@@ -18,6 +18,8 @@ import BetHistory from "../Pages/User/BetHistory";
 import CashTransferHistory from "../Pages/User/CashTransferHistory";
 import GoalResult from "../Pages/User/GoalResult";
 import CashTransfer from "../Pages/User/CashTransfer";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,42 +60,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/admin",
-    element: <Layout />,
-    children: [
-      {
-        path: "/admin",
-        element: <Dashboard />,
-      },
-      {
-        path: "/admin/admins",
-        element: <Admins />,
-      },
-      {
-        path: "/admin/masters",
-        element: <Masters />,
-      },
-      {
-        path: "/admin/agents",
-        element: <Agents />,
-      },
-      {
-        path: "/admin/users",
-        element: <Users />,
-      },
-      {
-        path: "/admin/profile",
-        element: <Profile />,
-      },
-    ],
-  },
-  {
     path: "/login",
     element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
   },
   {
     path: "*",

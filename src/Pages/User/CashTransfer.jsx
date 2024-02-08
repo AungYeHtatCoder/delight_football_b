@@ -4,7 +4,7 @@ const CashTransfer = () => {
   return (
     <>
       <div className="container-fluid" style={{ paddingBottom: "200px" }}>
-        <h5 className="text-center">ငွေအကြောင်း / ကြား</h5>
+        <h5 className="text-center mt-4">ငွေအကြောင်း / ကြား</h5>
         <ul className="nav nav-pills mb-3 tab" id="pills-tab" role="tablist">
           <li className="nav-item" role="presentation">
             <button

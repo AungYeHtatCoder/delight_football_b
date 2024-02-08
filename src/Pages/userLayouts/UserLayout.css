@@ -46,7 +46,8 @@
     rgba(102, 0, 149, 1) 0%,
     rgba(52, 0, 87, 1) 56%
   ); */
-  background-image: url('../../../public/22432.jpg');
+  /* background-image: url('../../../public/22432.jpg'); */
+  background-image: url('../../assets/img/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

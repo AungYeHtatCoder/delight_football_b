@@ -9,7 +9,7 @@ const Maung = () => {
         className="container-fluid"
         style={{ minHeight: "100vh", paddingBottom: "120px" }}
       >
-        <h5 className="text-center">မောင်း</h5>
+        <h5 className="text-center mt-4">မောင်း</h5>
         <div className="pt-1 mt-2">
           <p>
             <i className="fa fa-star pe-2"></i> AFC Cup
