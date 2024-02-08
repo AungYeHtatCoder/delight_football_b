@@ -5,7 +5,7 @@ const BodyGoal = () => {
   return (
     <>
       <div className="container-fluid" style={{ paddingBottom: "100px" }}>
-        <h5 className="text-center">ဘော်ဒီ/ဂိုးပေါင်း</h5>
+        <h5 className="text-center mt-4">ဘော်ဒီ/ဂိုးပေါင်း</h5>
         <div className="pt-1 mt-4 ">
           <p>
             <i className="fa fa-star pe-2"></i> AFC Cup

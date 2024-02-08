@@ -1,10 +1,9 @@
 import React from "react";
 import "./UserLayout.css";
-import Footer from "../layouts/Footer";
-import logo from "../../assets/img/logo/logo.png"
+import logo from '../../assets/img/logo.png';
 import { Link } from "react-router-dom";
+
 const Navbar = () => {
-  const navigate = useNavigate();
   return (
     <div id="navbar">
       <div class="row">
