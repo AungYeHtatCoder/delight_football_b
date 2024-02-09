@@ -15,7 +15,7 @@ const Maung = () => {
             <i className="fa fa-star pe-2"></i> AFC Cup
           </p>
         </div>
-        <div className="card shadow bg-dark px-2 pt-2 pb-3 " >
+        <div className="card shadow px-2 pt-2 pb-3 " style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around align-items-center">
@@ -35,7 +35,7 @@ const Maung = () => {
               <p>ဂိုးပေါ်</p>
             </div>
             <div className="box-3">
-              <p className=" fw-bold" style={{color:'#333'}}>4 + 60</p>
+              <p className=" fw-bold">4 + 60</p>
             </div>
             <div className="box-2">
               <p>ဂိုးအောက်</p>
@@ -47,7 +47,7 @@ const Maung = () => {
             <i className="fa fa-star pe-2"></i> Turkiye Lig3
           </p>
         </div>
-        <div className="card shadow bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow px-2 pt-2 pb-3" style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around align-items-center">
@@ -67,7 +67,7 @@ const Maung = () => {
               <p>ဂိုးပေါ်</p>
             </div>
             <div className="box-3">
-              <p>4 + 60</p>
+              <p className="fw-bold">4 + 60</p>
             </div>
             <div className="box-2">
               <p>ဂိုးအောက်</p>
@@ -79,7 +79,7 @@ const Maung = () => {
             <i className="fa fa-star pe-2"></i> Bulgaria B PFG
           </p>
         </div>
-        <div className="card shadow bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow px-2 pt-2 pb-3" style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around align-items-center">
@@ -99,7 +99,7 @@ const Maung = () => {
               <p>ဂိုးပေါ်</p>
             </div>
             <div className="box-3">
-              <p>4 + 60</p>
+              <p className="fw-bold">4 + 60</p>
             </div>
             <div className="box-2">
               <p>ဂိုးအောက်</p>
@@ -111,7 +111,7 @@ const Maung = () => {
             <i className="fa fa-star pe-2"></i> Turkiye Lig3
           </p>
         </div>
-        <div className="card shadow bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow px-2 pt-2 pb-3" style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around align-items-center">
@@ -131,7 +131,7 @@ const Maung = () => {
               <p>ဂိုးပေါ်</p>
             </div>
             <div className="box-3">
-              <p>4 + 60</p>
+              <p className="fw-bold">4 + 60</p>
             </div>
             <div className="box-2">
               <p>ဂိုးအောက်</p>

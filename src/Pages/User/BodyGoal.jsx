@@ -11,7 +11,7 @@ const BodyGoal = () => {
             <i className="fa fa-star pe-2"></i> AFC Cup
           </p>
         </div>
-        <div className="card shadow text-center bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow text-center px-2 pt-2 pb-3"  style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around">
@@ -39,7 +39,7 @@ const BodyGoal = () => {
             <i className="fa fa-star pe-2"></i> Turkiye Lig3
           </p>
         </div>
-        <div className="card shadow text-center bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow text-center px-2 pt-2 pb-3"  style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around">
@@ -67,7 +67,7 @@ const BodyGoal = () => {
             <i className="fa fa-star pe-2"></i> Bulgaria B PFG
           </p>
         </div>
-        <div className="card shadow text-center bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow text-center  px-2 pt-2 pb-3"  style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1">
@@ -95,7 +95,7 @@ const BodyGoal = () => {
             <i className="fa fa-star pe-2"></i> Turkiye Lig3
           </p>
         </div>
-        <div className="card shadow text-center bg-dark px-2 pt-2 pb-4">
+        <div className="card shadow text-center px-2 pt-2 pb-4"  style={{backgroundColor:'#cf7821'}}>
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
             <div className="box-1 d-flex justify-content-around align-items-center">
