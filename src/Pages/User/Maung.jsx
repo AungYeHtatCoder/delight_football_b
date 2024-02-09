@@ -15,11 +15,11 @@ const Maung = () => {
             <i className="fa fa-star pe-2"></i> AFC Cup
           </p>
         </div>
-        <div className="card shadow bg-dark px-2 pt-2 pb-3">
+        <div className="card shadow bg-dark px-2 pt-2 pb-3 " >
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
-            <div className="box-1 d-flex justify-content-around">
-              <p className="d-flex align-items-center">မာဇီယာ SRC</p>
+            <div className="box-1 d-flex justify-content-around align-items-center">
+              <p >မာဇီယာ SRC</p>
               <h5>
                 <span className="badge" style={{ backgroundColor: "#3e3e3e" }}>
                   1-10
@@ -27,7 +27,7 @@ const Maung = () => {
               </h5>
             </div>
             <div className="box-1">
-              <p>ATK မိုဟန် B</p>
+              <p className="text-center">ATK မိုဟန် B</p>
             </div>
           </div>
           <div className="d-flex mt-1">
@@ -35,7 +35,7 @@ const Maung = () => {
               <p>ဂိုးပေါ်</p>
             </div>
             <div className="box-3">
-              <p>4 + 60</p>
+              <p className=" fw-bold" style={{color:'#333'}}>4 + 60</p>
             </div>
             <div className="box-2">
               <p>ဂိုးအောက်</p>
@@ -50,7 +50,7 @@ const Maung = () => {
         <div className="card shadow bg-dark px-2 pt-2 pb-3">
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
-            <div className="box-1 d-flex justify-content-around">
+            <div className="box-1 d-flex justify-content-around align-items-center">
               <p>မာဇီယာ SRC</p>
               <h5>
                 <span className="badge" style={{ backgroundColor: "#3e3e3e" }}>
@@ -59,7 +59,7 @@ const Maung = () => {
               </h5>
             </div>
             <div className="box-1">
-              <p>ATK မိုဟန် B</p>
+              <p className="text-center">ATK မိုဟန် B</p>
             </div>
           </div>
           <div className="d-flex mt-1">
@@ -82,7 +82,7 @@ const Maung = () => {
         <div className="card shadow bg-dark px-2 pt-2 pb-3">
           <p className="text-white">ပွဲချိန် : 11-12-2023 4:30 PM</p>
           <div className="d-flex">
-            <div className="box-1 d-flex justify-content-around">
+            <div className="box-1 d-flex justify-content-around align-items-center">
               <p>မာဇီယာ SRC</p>
               <h5>
                 <span className="badge" style={{ backgroundColor: "#3e3e3e" }}>
@@ -91,7 +91,7 @@ const Maung = () => {
               </h5>
             </div>
             <div className="box-1">
-              <p>ATK မိုဟန် B</p>
+              <p className="text-center">ATK မိုဟန် B</p>
             </div>
           </div>
           <div className="d-flex mt-1">
@@ -123,7 +123,7 @@ const Maung = () => {
               </h5>
             </div>
             <div className="box-1">
-              <p>ATK မိုဟန် B</p>
+              <p className="text-center">ATK မိုဟန် B</p>
             </div>
           </div>
           <div className="d-flex mt-1">

@@ -67,7 +67,7 @@ const CashTransfer = () => {
                     <input type="number" name="amount" className="form-control bg-transparent text-white" placeholder="" />
                   </div>
                   <div className="my-3">
-                    <button className="btn btn-light w-100">ပို့မည်</button>
+                    <button className="btn text-white w-100" style={{backgroundColor:'#888'}}>ပို့မည်</button>
                   </div>
                 </form>
               </div>
@@ -104,7 +104,7 @@ const CashTransfer = () => {
                     <input type="number" name="amount" className="form-control bg-transparent text-white" placeholder="" />
                   </div>
                   <div className="mb-3">
-                    <button className="btn btn-light w-100">ပို့မည်</button>
+                    <button className="btn text-white w-100" style={{backgroundColor:'#888'}}>ပို့မည်</button>
                   </div>
                 </form>
               </div>

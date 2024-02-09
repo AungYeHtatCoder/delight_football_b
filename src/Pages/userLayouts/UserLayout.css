@@ -433,8 +433,8 @@ footer {
     rgba(102, 0, 149, 1) 0%,
     rgba(52, 0, 87, 1) 56%
   ); */
-  background-color: #818181;
-  border: 1px solid rgb(0, 106, 255);
+  background-color: #7a3526;
+  /* border: 1px solid rgb(0, 106, 255); */
   color: #fff;
   margin: 0px 2px 2px 2px;
   border-radius: 5px;
@@ -446,8 +446,8 @@ footer {
     rgba(102, 0, 149, 1) 0%,
     rgba(52, 0, 87, 1) 56%
   ); */
-  background-color: #818181;
-  border: 1px solid rgb(0, 106, 255);
+  background-color: #7a3526;
+  /* border: 1px solid rgb(0, 106, 255); */
   color: #fff;
   border-radius: 5px;
   width: 40%;
@@ -455,7 +455,7 @@ footer {
   text-align: center;
 }
 .box-3 {
-  background: #5732fcc3;
+  background: #cf7821;
   color: #fff;
   width: 20%;
   align-items: center;
