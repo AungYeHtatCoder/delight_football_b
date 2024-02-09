@@ -7,7 +7,7 @@ const BetHistory = () => {
       <div className="container-fluid" style={{ paddingBottom: "100px" }}>
         <h5 className="text-center mt-4">လောင်းထားသောပွဲစဉ်များ</h5>
         <div className="row mt-3 pb-3" style={{ fontSize: "small" }}>
-          <div className="card mt-3 shadow">
+          <div className="card mt-3 shadow text-dark" style={{backgroundColor:'#bbb'}}>
             <div className="card-body">
               <h5 className="card-title d-flex justify-content-end">
                 08-01-2024 5:38 PM
@@ -30,7 +30,7 @@ const BetHistory = () => {
               </div>
             </div>
           </div>
-          <div className="card mt-3 shadow">
+          <div className="card mt-3 shadow" style={{backgroundColor:'#bbb'}}>
             <div className="card-body">
               <h5 className="card-title d-flex justify-content-end">
                 08-01-2024 5:38 PM
@@ -53,7 +53,7 @@ const BetHistory = () => {
               </div>
             </div>
           </div>
-          <div className="card mt-3 shadow">
+          <div className="card mt-3 shadow" style={{backgroundColor:'#bbb'}}>
             <div className="card-body">
               <h5 className="card-title d-flex justify-content-end">
                 08-01-2024 5:38 PM

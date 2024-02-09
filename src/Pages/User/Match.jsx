@@ -7,9 +7,9 @@ const Match = () => {
         <p
           className="fs-6 fw-bold p-2"
           style={{
-            color: "#fff",
+            color: "#222",
             background:
-            "#5732fcc3",
+            "#cf7821",
             border: "1px solid goldenrod",
             borderRadius: "5px",
           }}
@@ -76,9 +76,9 @@ const Match = () => {
         <p
           className="fs-6 fw-bold p-2"
           style={{
-            color: "#fff",
+            color: "#222",
             background:
-            "#5732fcc3",
+            "#cf7821",
             border: "1px solid goldenrod",
             borderRadius: "5px",
           }}

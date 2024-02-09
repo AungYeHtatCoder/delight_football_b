@@ -49,7 +49,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -69,7 +69,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -89,7 +89,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -109,7 +109,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -129,7 +129,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -149,7 +149,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold" style={{ marginLeft: "20%" }}>
@@ -194,7 +194,7 @@ const GoalResult = () => {
               >
                 AFC Cup
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-start align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                 </div>
@@ -211,7 +211,7 @@ const GoalResult = () => {
               >
                 Australia A-league
               </p>
-              <div className="bg-secondary">
+              <div style={{backgroundColor:'#43484d'}}>
                 <div className="d-flex justify-content-around align-items-center">
                   <p style={{ fontSize: 12 }}>12-12-2023 &nbsp; 12:00 AM</p>
                   <p className="fw-bold ">FT</p>

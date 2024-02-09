@@ -10,7 +10,7 @@ const CashTransferHistory = () => {
           <p>08-01-2024 အဖွင့်လက်ကျန်</p>
           <p>35,000</p>
         </div>
-        <div className="card mt-3 shadow">
+        <div className="card mt-3 shadow" style={{backgroundColor:"#bbb"}}>
           <div className="card-body">
             <h5 className="card-title d-flex justify-content-end">
               08-01-2024
@@ -33,7 +33,7 @@ const CashTransferHistory = () => {
             </div>
           </div>
         </div>
-        <div className="card mt-3 shadow">
+        <div className="card mt-3 shadow" style={{backgroundColor:"#bbb"}}>
           <div className="card-body">
             <h5 className="card-title d-flex justify-content-end">
               08-01-2024
