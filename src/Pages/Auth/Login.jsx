@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import logo from '../../assets/img/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import BASE_URL from '../../hooks/baseURL';
+import SmallSpinner from '../../components/smallspinner';
 
 export default function Login() {
-
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState('')
 
     const auth = localStorage.getItem("token");
     const navigate = useNavigate();
@@ -17,55 +21,65 @@ export default function Login() {
       }, [navigate]);
     }
 
-    let login = (e) => {
-        e.preventDefault();
-        let loginData = {
-            phone: phone,
-            password: password
-        }
-
-        fetch(BASE_URL + "/login", {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(loginData),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Log In Failed");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              // console.log('Login successful:', data);
-              console.log(data);
-              if (data) {
-                const userData = data.data.user;
+    const login = (e) =>{
+      e.preventDefault();
+      setLoading(true);
+      const loginData = {
+          phone: phone,
+          password: password
+      };
       
-                localStorage.setItem("token", data.data.token);
-                localStorage.setItem(
-                  "user",
-                  JSON.stringify({
-                    userData,
-                  })
-                );
-                
-                //redirect to home page
-                navigate("/");
-              } else {
-                throw new Error("Token not found in response");
-              }
-            })
-            .catch((error) => {
-              console.error(error);
-              if (error) {
-                setErrorMessage("Phone Or Password is incorrect!");
-                setLoading(false);
-              }
-            });
-    }
+      fetch(BASE_URL + '/login', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginData)
+      })
+        .then(async response => {
+          if (!response.ok) {
+            setLoading(false);
+            let errorData;
+            try {
+              errorData = await response.json();
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+            }
+      
+            if (response.status === 422) {
+              setError(errorData.errors);
+              console.error(`Login failed with status ${response.status}:`, errorData);
+            }else if (response.status === 401) {
+              console.error(`Login failed with status ${response.status}:`, errorData);
+              setErrMsg(errorData.message)
+            }else{
+              console.error(`Unexpected error with status ${response.status}`);
+            }
+      
+            throw new Error('Login Failed');
+          }
+      
+          return response.json();
+        })
+        .then(data => {
+          setData(data);
+          setLoading(false);
+          // console.log(data);
+          if (data.data.token) {
+            localStorage.setItem('token', data.data.token);
+            navigate('/');
+          } else {
+            throw new Error('Token not found in response');
+          }
+        })
+        .catch(error => {
+          console.error('Login error:', error);
+        });
+      
+      
+  }
+
 
 
 
@@ -96,14 +110,26 @@ export default function Login() {
                 </div>
             </div>
             <div className="card-body">
+              {errMsg && (
+                <div className="alert alert-danger text-white">
+                  *{errMsg}
+                </div>
+              )}
                 <form role="form" className="text-start" onSubmit={login}>
                     <div className="mb-3">
                         <label htmlFor="phone" className="form-label">Phone</label>
                         <input type="text" id="phone" name='phone' value={phone} onChange={(e) => setPhone(e.target.value)} className="form-control" placeholder="Enter Phone" />
+                        {error.phone && (
+                            <div className="text-danger">*{error.phone}</div>
+                        )}
                     </div>
+                    
                     <div className="mb-3">
                         <label htmlFor="password" className="form-label">Password</label>
                         <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" placeholder="Enter Password" />
+                        {error.password && (
+                            <span className="text-danger">*{error.password}</span>
+                        )}
                     </div>
 
                     <div className="form-check form-switch d-flex align-items-center mb-3">
@@ -114,7 +140,8 @@ export default function Login() {
                     </div>
                     <div className="text-center">
                         <button type="submit" className="btn bg-gradient-primary w-100 my-4 mb-2 py-2">
-                        Sign in
+                          {loading && <SmallSpinner />}
+                          Sign in
                         </button>
                     </div>
                 </form>
