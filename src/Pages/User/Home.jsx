@@ -1,27 +1,30 @@
 import React, { useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../userLayouts/UserLayout.css';
+import BASE_URL from '../../hooks/baseURL';
+import useFetch from '../../hooks/useFetch';
 
-const formatNumber = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
 
 const Home = () => {
   const navigate = useNavigate();
   const auth = localStorage.getItem('token');
+  const { data: user, error } = useFetch(BASE_URL + "/profile");
+  // console.log(user);
+  const formatNumber = (number) => number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+  // Ensure that the balance property exists before formatting it
+  if (user.balance !== undefined) {
+    user.balance = formatNumber(parseFloat(user.balance));
+  }
+  
   useEffect(() => {
     if (!auth) {
       navigate('/login'); // Navigate to login route if not authenticated
     }
   }, [auth, navigate]);
 
-  let userBalance = '';
-  let user = null;
-  if (auth) {
-    const authUser = localStorage.getItem('user');
-    user = JSON.parse(authUser);
-    const balance = user?.userData?.balance;
-    userBalance = formatNumber(balance);
-  }
+
 
   const NavLinkCard = ({ to, imgSrc, text }) => (
     <NavLink to={to} className="card w-100 text-decoration-none me-1">
@@ -30,7 +33,7 @@ const Home = () => {
     </NavLink>
   );
 
-  return user && user.userData ? (
+  return user && (
     <div className="container-fluid py-4">
       <marquee behavior="" className="mt-3 text-white" direction="left">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, numquam.
@@ -40,8 +43,8 @@ const Home = () => {
           <div className="d-flex align-items-center mt-3">
             <i className="fa-regular fa-user-circle text-dark" style={{ fontSize: '55px' }}></i>
             <div className="ms-4">
-              <h5 className="mt-1 fw-bold text-dark">{user?.userData?.name}</h5>
-              <h5 className="mt-1 fw-bold text-dark">{userBalance} Ks</h5>
+              <h5 className="mt-1 fw-bold text-dark">{user.name}</h5>
+              <h5 className="mt-1 fw-bold text-dark">{user.balance} Ks</h5>
             </div>
           </div>
           <div className="">
@@ -67,7 +70,7 @@ const Home = () => {
       </div>
       {/* Repeat for other sections, using NavLinkCard to reduce redundancy */}
     </div>
-  ) : null;
+  );
 };
 
 export default Home;
