@@ -48,10 +48,12 @@ export default function Login() {
             }
       
             if (response.status === 422) {
+              setErrMsg("");
               setError(errorData.errors);
               console.error(`Login failed with status ${response.status}:`, errorData);
             }else if (response.status === 401) {
               console.error(`Login failed with status ${response.status}:`, errorData);
+              setError("");
               setErrMsg(errorData.message)
             }else{
               console.error(`Unexpected error with status ${response.status}`);
