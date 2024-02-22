@@ -18,6 +18,7 @@ import BetHistory from "../Pages/User/BetHistory";
 import CashTransferHistory from "../Pages/User/CashTransferHistory";
 import GoalResult from "../Pages/User/GoalResult";
 import CashTransfer from "../Pages/User/CashTransfer";
+import Confirm from "../Pages/User/Confirm";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "bodyGoal",
         element: <BodyGoal />,
+      },
+      {
+        path: "confirm",
+        element: <Confirm />
       },
       {
         path: "betHistory",
