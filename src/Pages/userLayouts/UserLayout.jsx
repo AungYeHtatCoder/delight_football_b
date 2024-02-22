@@ -1,6 +1,8 @@
 import React from "react";
 import "./UserLayout.css";
 import logo from "../../assets/img/logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -15,6 +17,7 @@ const UserLayout = () => {
   }
   return (
     <div className="container-fluid" id="allBgColor">
+      <ToastContainer />
       <div className="row">
         <div className="text-center pt-4">
           <Link to="/">

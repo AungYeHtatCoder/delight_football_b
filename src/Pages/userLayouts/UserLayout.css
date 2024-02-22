@@ -21,6 +21,10 @@
   display: none;
 }
 
+.box-active{
+  background-color: #7a3526;
+}
+
 .fa-bell {
   font-size: 20px;
 }
@@ -433,6 +437,7 @@ footer {
   margin: 0px 2px 2px 2px;
   border-radius: 5px;
   width: 50%;
+  cursor: pointer;
 }
 .box-2 {
   /* background: linear-gradient(
@@ -447,6 +452,7 @@ footer {
   width: 40%;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 .box-3 {
   background: #3e3e3e;
