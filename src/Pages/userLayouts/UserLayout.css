@@ -41,16 +41,11 @@
 
 #allBgColor,
 .allBgColor {
-  /* background: linear-gradient(
-    6deg,
-    rgba(102, 0, 149, 1) 0%,
-    rgba(52, 0, 87, 1) 56%
-  ); */
-  /* background-image: url('../../../public/22432.jpg'); */
-  background-image: url('../../assets/img/background.jpg');
+  background-image: url('https://t4.ftcdn.net/jpg/01/91/49/27/360_F_191492708_TwcKfHy2xLTN6ZS3uXaJ551HzgOFyT4I.jpg');
   background-position: center;
   background-size: cover;
   min-height: 100vh;
+
 }
 
 /* sidebar */
