@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const BodyGoal = () => {
   const {data: bodies, loading} = useFetch(BASE_URL + "/markets");
   const {data: user} = useFetch(BASE_URL + "/profile");
+  console.log(bodies);
   const [data, setData] = useState();
   const [error, setError] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -17,6 +18,8 @@ const BodyGoal = () => {
   const navigate = useNavigate();
 
   const [activeItem, setActiveItem] = useState("");
+  const [isType1, setIsType1] = useState(false);
+  const [isType2, setIsType2] = useState(false);
   const [input, setInput] = useState({});
   const [amount, setAmount] = useState(0);
 
@@ -27,6 +30,7 @@ const BodyGoal = () => {
       "amount" : amount,
       "bet" : input
     }
+    console.log(inputData);
     if (amount <= 0 || amount < 1000) {
       setLoader(false)
       toast.error('အနည်းဆုံး တစ်ထောင်ကျပ် ထည့်ပါ။', {
@@ -72,11 +76,9 @@ const BodyGoal = () => {
           toast.error(errorData.message , {
             position: toast.TOP_RIGHT,
             style: {
-              backgroundColor: 'black', // Set the text color to red
-              // important: true, // Apply !important
+              backgroundColor: 'black',
             },
           });
-          // return;
           console.error(`${response.status}:`, errorData);
         }else if (response.status === 401) {
           console.error(`${response.status}:`, errorData);
@@ -124,14 +126,18 @@ const BodyGoal = () => {
               <div key={index} className="card shadow px-2 pt-2 pb-3 mb-3" style={{backgroundColor:'#cf7821'}}>
                 <p className="text-white">ပွဲချိန် : {fixture.date_time}</p>
                 <div className="d-flex">
-                  <div className={`box-1 d-flex justify-content-around align-items-center ${fixture.market.upper_team_id === activeItem && 'bg-dark'}`} 
-                  onClick={()=>setActiveItem(fixture.market.upper_team_id)}
+                <div className={`box-1 d-flex justify-content-around align-items-center ${fixture.market.ab && fixture.home_team.id === activeItem && isType1 && 'bg-dark'}`} 
+                  onClick={()=>[
+                    setActiveItem(fixture.market.ab && fixture.home_team.id), 
+                    setIsType1(true),
+                    setIsType2(false)
+                  ]}
                   >
                     <p 
                     onClick={()=>setInput({
                       "market_id" : fixture.market.id,
                       "type" : "ab",
-                      "selected_side" : "upper",
+                      "selected_side" : fixture.market.upper_team_id === fixture.home_team.id ? "upper" : "lower",
                     })}
                     >{fixture.home_team.name}</p>
                     {fixture.home_team.id == fixture.market.handicap_team_id && (
@@ -143,8 +149,12 @@ const BodyGoal = () => {
                     )}
                     
                   </div>
-                  <div className={`box-1 d-flex justify-content-around align-items-center ${fixture.market.lower_team_id === activeItem && 'bg-dark'}`}
-                  onClick={()=>setActiveItem(fixture.market.lower_team_id)}
+                  <div className={`box-1 d-flex justify-content-around align-items-center ${fixture.market.ab && fixture.away_team.id === activeItem && isType1 && 'bg-dark'}`} 
+                  onClick={()=>[
+                    setActiveItem(fixture.market.ab && fixture.away_team.id),
+                    setIsType1(true),
+                    setIsType2(false)
+                  ]}
                   >
                     {fixture.away_team.id == fixture.market.handicap_team_id && (
                       <h5>
@@ -157,51 +167,37 @@ const BodyGoal = () => {
                     onClick={()=>setInput({
                       "market_id" : fixture.market.id,
                       "type" : "ab",
-                      "selected_side" : "lower",
+                      "selected_side" : fixture.market.upper_team_id === fixture.away_team.id ? "upper" : "lower",
                     })}
                     >{fixture.away_team.name}</p>
-                    
                   </div>
                 </div>
                 <div className="d-flex mt-1">
-                  <div className={`box-2 ${fixture.home_team.id === activeItem && 'bg-dark'}`}
-                  onClick={()=>setActiveItem(fixture.home_team.id)}
+                  <div className={`box-2 ${fixture.home_team.id === activeItem && fixture.market.ou && isType2 && 'bg-dark'}`}
+                  onClick={()=>[
+                    setActiveItem(fixture.market.ou && fixture.home_team.id),
+                    setIsType1(false),
+                    setIsType2(true)
+                  ]}
                   >
-                    {fixture.home_team.id == fixture.market.upper_team_id && (
-                      <p
+                    <p
                       onClick={()=>setInput({
                         "market_id" : fixture.market.id,
                         "type" : "ou",
                         "selected_side" : "over",
                       })}
                       >ဂိုးပေါ်</p>
-                    )}
-                    {fixture.home_team.id == fixture.market.lower_team_id && (
-                      <p
-                      onClick={()=>setInput({
-                        "market_id" : fixture.market.id,
-                        "type" : "ou",
-                        "selected_side" : "under",
-                      })}
-                      >ဂိုးအောက်</p>
-                    )}
                   </div>
                   <div className="box-3 bg-secondary rounded">
                     <p className=" fw-bold">{fixture.market.ou}</p>
                   </div>
-                  <div className={`box-2 ${fixture.away_team.id === activeItem && 'bg-dark'}`}
-                  onClick={()=>setActiveItem(fixture.away_team.id)}
+                  <div className={`box-2 ${fixture.away_team.id === activeItem && fixture.market.ou && isType2 && 'bg-dark'}`}
+                  onClick={()=>[
+                    setActiveItem(fixture.market.ou && fixture.away_team.id),
+                    setIsType1(false),
+                    setIsType2(true)
+                  ]}
                   >
-                    {fixture.away_team.id == fixture.market.upper_team_id && (
-                      <p
-                      onClick={()=>setInput({
-                        "market_id" : fixture.market.id,
-                        "type" : "ou",
-                        "selected_side" : "over",
-                      })}
-                      >ဂိုးပေါ်</p>
-                    )}
-                    {fixture.away_team.id == fixture.market.lower_team_id && (
                       <p
                       onClick={()=>setInput({
                         "market_id" : fixture.market.id,
@@ -209,7 +205,6 @@ const BodyGoal = () => {
                         "selected_side" : "over",
                       })}
                       >ဂိုးအောက်</p>
-                    )}
                   </div>
                 </div>
               </div>

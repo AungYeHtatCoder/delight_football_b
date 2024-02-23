@@ -4,13 +4,29 @@ import Footer from "../userLayouts/Footer";
 import useFetch from "../../hooks/useFetch";
 import BASE_URL from "../../hooks/baseURL";
 import Spinner from "../../components/Spinner";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Maung = () => {
-  const {data: maungs, loading, error} = useFetch(BASE_URL + "/markets");
+  const {data: maungs, loading} = useFetch(BASE_URL + "/markets");
+  const {data: user} = useFetch(BASE_URL + "/profile");
+  const [data, setData] = useState();
+  const [error, setError] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const [loader, setLoader] = useState(false);
+
+  const [activeItems, setActiveItems] = useState([]);
+  const [input, setInput] = useState([]);
+  const [amount, setAmount] = useState(0);
+
+  const handleActiveItems = (value) => {
+    
+  }
 
   return (
     <>
       <div className="container-fluid" style={{ minHeight: "100vh", paddingBottom: "120px" }}>
+      <ToastContainer />
         <h5 className="text-center mt-4">မောင်း</h5>
         {/* start */}
         {loading && (
@@ -27,7 +43,9 @@ const Maung = () => {
               <div key={index} className="card shadow px-2 pt-2 pb-3 mb-3" style={{backgroundColor:'#cf7821'}}>
                 <p className="text-white">ပွဲချိန် : {fixture.date_time}</p>
                 <div className="d-flex">
-                  <div className="box-1 d-flex justify-content-around align-items-center">
+                  <div className={`box-1 d-flex justify-content-around align-items-center ${fixture.market.upper_team_id === activeItems && 'bg-dark'}`} 
+                  onClick={()=>handleActiveItems(fixture.market.upper_team_id)}
+                  >
                     <p >{fixture.home_team.name}</p>
                     {fixture.home_team.id == fixture.market.handicap_team_id && (
                       <h5>
