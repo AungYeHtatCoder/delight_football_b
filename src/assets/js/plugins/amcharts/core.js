@@ -10209,7 +10209,7 @@
         return void 0 === i && (i = !0), Object(n.b)(this, void 0, void 0, function() {
           var r, a, o, s, l, u, h, c = this;
           return Object(n.d)(this, function(n) {
-            if (r = "<table>", e.tableClass && (r = '<table class="' + e.tableClass + '">'), a = this.adapter.apply("formatDataFields", {
+            if (r = "<table>", e.tableClass && (r = '<table className="' + e.tableClass + '">'), a = this.adapter.apply("formatDataFields", {
                 dataFields: this.dataFields,
                 format: "html"
               }).dataFields, o = this.data, e.pivot) s = this.adapter.apply("dataFieldsOrder", {
@@ -10246,7 +10246,7 @@
         var a = this;
         void 0 === r && (r = !1), void 0 === n && (n = !1);
         var o = "\t<tr>";
-        e.rowClass && (o = '\t<tr class="' + e.rowClass + '">'), i || (i = t);
+        e.rowClass && (o = '\t<tr className="' + e.rowClass + '">'), i || (i = t);
         var s = this.adapter.apply("dataFieldsOrder", {
             dataFieldsOrder: this.dataFieldsOrder,
             format: "html"
@@ -10260,7 +10260,7 @@
             return "&#" + t.charCodeAt(0) + ";"
           });
           var c = l;
-          e.pivot && u && (c = "th"), e.cellClass ? o += "\n\t\t<" + c + ' class="' + e.cellClass + '">' + h + "</" + c + ">" : o += "\n\t\t<" + c + ">" + h + "</" + c + ">", u = !1
+          e.pivot && u && (c = "th"), e.cellClass ? o += "\n\t\t<" + c + ' className="' + e.cellClass + '">' + h + "</" + c + ">" : o += "\n\t\t<" + c + ">" + h + "</" + c + ">", u = !1
         }, function(t, e) {
           var i = s.indexOf(t),
             r = s.indexOf(e);
