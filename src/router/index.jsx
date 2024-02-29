@@ -19,6 +19,8 @@ import CashTransferHistory from "../Pages/User/CashTransferHistory";
 import GoalResult from "../Pages/User/GoalResult";
 import CashTransfer from "../Pages/User/CashTransfer";
 import Confirm from "../Pages/User/Confirm";
+import MaungConfirm from "../Pages/User/MaungConfirm";
+import BetHistoryDetail from "../Pages/User/BetHistoryDetail";
 
 
 const router = createBrowserRouter([
@@ -39,12 +41,20 @@ const router = createBrowserRouter([
         element: <BodyGoal />,
       },
       {
-        path: "confirm",
+        path: "body-confirm",
         element: <Confirm />
+      },
+      {
+        path: "maung-confirm",
+        element: <MaungConfirm />
       },
       {
         path: "betHistory",
         element: <BetHistory />,
+      },
+      {
+        path: "betHistoryDetail/:uuid",
+        element: <BetHistoryDetail />,
       },
       {
         path: "cashTransfer",

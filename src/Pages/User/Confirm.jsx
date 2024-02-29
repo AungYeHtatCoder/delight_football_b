@@ -69,7 +69,11 @@ export default function Confirm() {
                   backgroundColor: 'black',
                 },
               });
-              navigate('/');
+              document.getElementById("confirm").classList.add("d-none");
+              document.getElementById("thank").classList.remove("d-none");
+              setTimeout(() => {
+                navigate('/');
+              }, 3000);
           })
           .catch(error => {
             console.error(error);
@@ -78,72 +82,77 @@ export default function Confirm() {
   return (
     <div className='container-fluid bg-secondary p-3 rounded shadow'>
         <ToastContainer />
-      <h6 className='text-center'>အတည်ပြုရန်</h6>
-      <div className="row mt-4">
-        {/* 1 */}
-        <div className="col-6">
-            <p>လောင်းကြေး</p>
+        <div className='' id='confirm'>
+          <h6 className='text-center'>အတည်ပြုရန်</h6>
+          <div className="row mt-4">
+            {/* 1 */}
+            <div className="col-6">
+                <p>လောင်းကြေး</p>
+            </div>
+            <div className="col-6">
+                <p><b>{confirm ? confirm.bettable.amount : ""} MMK</b></p>
+            </div>
+            {/* 2 */}
+            <div className="col-6">
+                <p>အမျိုးအစား</p>
+            </div>
+            <div className="col-6">
+                <p><b>{confirm ? (confirm.bettable_type == "single" ? "ဘော်ဒီ" : "မောင်း") : ""}</b></p>
+            </div>
+            {/* 3 */}
+            <div className="col-6">
+                <p>Possible Payout</p>
+            </div>
+            <div className="col-6">
+                <p>{confirm ? confirm.bettable.possible_payout : ""} MMK</p>
+            </div>
+            {/* 4 */}
+            <div className="col-6">
+                <p>Status</p>
+            </div>
+            <div className="col-6">
+                <p className={`badge text-bg-${confirm ? (confirm.bettable.status == "pending" ? 'warning' : 'success') : ""}`}>{confirm && confirm.bettable.status}</p>
+            </div>
+            {/* 5 */}
+            <div className="col-6">
+                <p>အိမ်ရှင်အသင်း</p>
+            </div>
+            <div className="col-6">
+                <p>{confirm ? confirm.bettable.home_team.name : ""}</p>
+            </div>
+            {/* 6 */}
+            <div className="col-6">
+                <p>အဝေးအသင်း</p>
+            </div>
+            <div className="col-6">
+                <p>{confirm ? confirm.bettable.away_team.name : ""}</p>
+            </div>
+            {/* 7 */}
+            <div className="col-6">
+                <p>Type</p>
+            </div>
+            <div className="col-6">
+                <p><b>{confirm ? (confirm.bettable.type == "ou" ? "Over/Under" : "Upper/Lower") : ""}</b></p>
+            </div>
+            {/* 8 */}
+            <div className="col-6">
+                <p>Selected Side</p>
+            </div>
+            <div className="col-6">
+                <p>{confirm ? (confirm.bettable.type == "ou" ? confirm.bettable.ou_selected_side : confirm.bettable.ab_selected_side) : ""}</p>
+            </div>
+          </div>
+          <div className="text-center">
+            <button className="btn btn-danger me-3" onClick={handleCancle}>ဖျက်မည်။</button>
+            <button className="btn btn-dark" onClick={handleConfirm}>
+                {loader && <SmallSpinner />}
+                လောင်းမည်။
+            </button>
+          </div>
         </div>
-        <div className="col-6">
-            <p><b>{confirm && confirm.bettable.amount} MMK</b></p>
+        <div id='thank' className='d-none'>
+          <p className='text-center'>လောင်းကြေး တင်ပြီးပါပြီ။</p>
         </div>
-        {/* 2 */}
-        <div className="col-6">
-            <p>အမျိုးအစား</p>
-        </div>
-        <div className="col-6">
-            <p><b>{confirm && confirm.bettable_type == "single" ? "ဘော်ဒီ" : "မောင်း"}</b></p>
-        </div>
-        {/* 3 */}
-        <div className="col-6">
-            <p>Possible Payout</p>
-        </div>
-        <div className="col-6">
-            <p>{confirm && confirm.bettable.possible_payout} MMK</p>
-        </div>
-        {/* 4 */}
-        <div className="col-6">
-            <p>Status</p>
-        </div>
-        <div className="col-6">
-            <p className={`badge text-bg-${confirm && confirm.bettable.status == "pending" ? 'warning' : 'success'}`}>{confirm && confirm.bettable.status}</p>
-        </div>
-        {/* 5 */}
-        <div className="col-6">
-            <p>အိမ်ရှင်အသင်း</p>
-        </div>
-        <div className="col-6">
-            <p>{confirm && confirm.bettable.home_team.name}</p>
-        </div>
-        {/* 6 */}
-        <div className="col-6">
-            <p>အဝေးအသင်း</p>
-        </div>
-        <div className="col-6">
-            <p>{confirm && confirm.bettable.away_team.name}</p>
-        </div>
-        {/* 7 */}
-        <div className="col-6">
-            <p>Type</p>
-        </div>
-        <div className="col-6">
-            <p><b>{confirm && confirm.bettable.type == "ou" ? "Over/Under" : "Upper/Lower"}</b></p>
-        </div>
-        {/* 8 */}
-        <div className="col-6">
-            <p>Selected Side</p>
-        </div>
-        <div className="col-6">
-            <p>{confirm && confirm.bettable.type == "ou" ? confirm.bettable.ou_selected_side : confirm.bettable.ab_selected_side}</p>
-        </div>
-      </div>
-      <div className="text-center">
-        <button className="btn btn-danger me-3" onClick={handleCancle}>ဖျက်မည်။</button>
-        <button className="btn btn-dark" onClick={handleConfirm}>
-            {loader && <SmallSpinner />}
-            လောင်းမည်။
-        </button>
-      </div>
     </div>
   )
 }

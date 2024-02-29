@@ -1837,7 +1837,7 @@
         e && this._map.fire(e, i)
       },
       _createRadioElement: function(t, i) {
-        var e = '<input type="radio" class="leaflet-control-layers-selector" name="' + t + '"' + (i ? ' checked="checked"' : "") + "/>",
+        var e = '<input type="radio" className="leaflet-control-layers-selector" name="' + t + '"' + (i ? ' checked="checked"' : "") + "/>",
           n = document.createElement("div");
         return n.innerHTML = e, n.firstChild
       },
@@ -4107,11 +4107,11 @@
       try {
         return document.namespaces.add("lvml", "urn:schemas-microsoft-com:vml"),
           function(t) {
-            return document.createElement("<lvml:" + t + ' class="lvml">')
+            return document.createElement("<lvml:" + t + ' className="lvml">')
           }
       } catch (t) {
         return function(t) {
-          return document.createElement("<" + t + ' xmlns="urn:schemas-microsoft.com:vml" class="lvml">')
+          return document.createElement("<" + t + ' xmlns="urn:schemas-microsoft.com:vml" className="lvml">')
         }
       }
     }(),

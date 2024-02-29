@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const BodyGoal = () => {
   const {data: bodies, loading} = useFetch(BASE_URL + "/markets");
   const {data: user} = useFetch(BASE_URL + "/profile");
-  console.log(bodies);
+  // console.log(bodies);
   const [data, setData] = useState();
   const [error, setError] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -23,14 +23,14 @@ const BodyGoal = () => {
   const [input, setInput] = useState({});
   const [amount, setAmount] = useState(0);
 
-  const handleSubmit = (e) =>{
-    e.preventDefault();
+  const handleSubmit = (amount, input) =>{
+    
     setLoader(true);
     const inputData = {
       "amount" : amount,
       "bet" : input
     }
-    console.log(inputData);
+    // console.log(inputData);
     if (amount <= 0 || amount < 1000) {
       setLoader(false)
       toast.error('အနည်းဆုံး တစ်ထောင်ကျပ် ထည့်ပါ။', {
@@ -96,8 +96,9 @@ const BodyGoal = () => {
         console.log(data);
         localStorage.setItem('confirm', JSON.stringify(data.data));
         setData(data);
-        navigate('/confirm');
+        navigate('/body-confirm');
         setLoader(false);
+        
     })
     .catch(error => {
       console.error(error);
@@ -230,7 +231,7 @@ const BodyGoal = () => {
                 />
             </div>
             <div>
-                <button onClick={handleSubmit} type="submit" className="btn btn-sm btn-outline-light mt-3">
+                <button onClick={()=>handleSubmit(amount, input)} type="submit" className="btn btn-sm btn-outline-light mt-3">
                   {loader && <SmallSpinner />}
                   <small>လောင်းမည်</small>
                 </button>

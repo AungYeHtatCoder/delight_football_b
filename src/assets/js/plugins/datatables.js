@@ -880,8 +880,8 @@
               html: this.head.innerHTML
             }), this.table.appendChild(this.foot)) : this.foot && this.table.removeChild(this.table.tFoot), this.wrapper = a("div", {
               class: "dataTable-wrapper dataTable-loading"
-            }), s += "<div class='dataTable-top'>", s += e.layout.top, s += "</div>", e.scrollY.length ? s += `<div class='dataTable-container' style='height: ${e.scrollY}; overflow-Y: auto;'></div>` : s += "<div class='dataTable-container'></div>", s += "<div class='dataTable-bottom'>", s += e.layout.bottom, s += "</div>", s = s.replace("{info}", e.paging ? "<div class='dataTable-info'></div>" : ""), e.paging && e.perPageSelect) {
-            let t = "<div class='dataTable-dropdown'><label>";
+            }), s += "<div className='dataTable-top'>", s += e.layout.top, s += "</div>", e.scrollY.length ? s += `<div className='dataTable-container' style='height: ${e.scrollY}; overflow-Y: auto;'></div>` : s += "<div className='dataTable-container'></div>", s += "<div className='dataTable-bottom'>", s += e.layout.bottom, s += "</div>", s = s.replace("{info}", e.paging ? "<div className='dataTable-info'></div>" : ""), e.paging && e.perPageSelect) {
+            let t = "<div className='dataTable-dropdown'><label>";
             t += e.labels.perPage, t += "</label></div>";
             const i = a("select", {
               class: "dataTable-selector"
@@ -893,7 +893,7 @@
             })), t = t.replace("{select}", i.outerHTML), s = s.replace("{select}", t)
           } else s = s.replace("{select}", "");
           if (e.searchable) {
-            const t = `<div class='dataTable-search'><input class='dataTable-input' placeholder='${e.labels.placeholder}' type='text'></div>`;
+            const t = `<div className='dataTable-search'><input className='dataTable-input' placeholder='${e.labels.placeholder}' type='text'></div>`;
             s = s.replace("{search}", t)
           } else s = s.replace("{search}", "");
           this.hasHeadings && this.render("header"), this.table.classList.add("dataTable-table");
@@ -1254,7 +1254,7 @@
         setMessage(t) {
           let e = 1;
           this.hasRows ? e = this.data[0].cells.length : this.activeHeadings.length && (e = this.activeHeadings.length), this.wrapper.classList.add("dataTable-empty"), this.label && (this.label.innerHTML = ""), this.totalPages = 0, this.render("pager"), this.clear(a("tr", {
-            html: `<td class="dataTables-empty" colspan="${e}">${t}</td>`
+            html: `<td className="dataTables-empty" colspan="${e}">${t}</td>`
           }))
         }
         columns(t) {

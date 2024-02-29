@@ -1,12 +1,15 @@
-import React from "react";
-import useFetch from "../../hooks/useFetch";
+import React, { useState } from "react";
+import useData from "../../hooks/useData";
 import BASE_URL from "../../hooks/baseURL";
 import Spin from "../../components/Spin";
+import { Link } from "react-router-dom";
 
 const BetHistory = () => {
-  const {data: bets, loading} = useFetch(BASE_URL + "/slips");
+  const [url, setUrl] = useState(BASE_URL + "/slips")
+  const {data, loading} = useData(url);
+  const bets = data.data;
+  const pages = data.meta;
   console.log(bets);
-  
 
 
   return (
@@ -17,15 +20,21 @@ const BetHistory = () => {
         {
           loading && <Spin />
         }
-          {bets && bets.map((bet, index) => (
-            <div key={index} className="card mt-3 shadow text-dark" style={{backgroundColor:'#bbb'}}>
+
+        {bets && bets.length > 0 ? (
+          <>          
+          {bets.map((bet, index) => (
+            <Link to={'/betHistoryDetail/' + bet.uuid} key={index} className="card mt-3 shadow text-dark text-decoration-none">
               <div className="card-body">
                 <h5 className="card-title d-flex justify-content-end">
-                  {bet.created_at}
+                  <div className="text-dark" style={{ "fontSize" : "16px" }}>
+                    <i className="fas fa-calendar text-dark me-2"></i>
+                    {bet.created_at}
+                  </div>
                 </h5>
                 <div className="row p-2">
                   <div className="col-6">
-                    <p className="card-text text-dark">BetId</p>
+                    <p className="card-text text-dark">အမှတ်စဥ်</p>
                   </div>
                   <div className="col-6">
                     <p className="card-text text-dark">{bet.uuid.slice(0, 8)}</p>
@@ -45,7 +54,7 @@ const BetHistory = () => {
                         <p className="card-text text-dark">မောင်း(အကြိမ်ရေ)</p>
                       </div>
                       <div className="col-6">
-                          <p className="card-text text-dark">{bet.parlay_bets_count}</p>
+                          <p className="card-text text-dark">{bet.parlay_bets_count} မောင်း</p>
                       </div>
                   </div>
                 )}
@@ -70,12 +79,41 @@ const BetHistory = () => {
                     <p className="card-text text-dark">နိုင်/ရှုံး</p>
                   </div>
                   <div className="col-6">
-                    <p className="badge text-bg-primary">{bet.status.toUpperCase()}</p>
+                    <p className={`badge text-bg-${bet.status == "ongoing" ? "warning" : "success"}`}>{bet.status == "ongoing" ? "Pending" : "Completed"}</p>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
+          {/* pagination codes */}
+          {pages && (
+            <div className="d-flex justify-content-center mt-4">
+                <div className='m-1'>
+                    <button onClick={() => setUrl(pages.links[0].url)} className="btn btn-outline-light" disabled={pages.current_page === 1}>
+                    <i className="fas fa-angle-left"></i>
+                    </button>
+                </div>
+                {pages.links && pages.links.slice(1, -1).map((page, index) => (
+                <div key={index} className='m-1'>
+                    <button className={`btn ${page.active ? 'btn-light' : 'btn-outline-light'}`} onClick={() => setUrl(page.url)}>
+                    {page.label}
+                    </button>
+                </div>
+                ))}
+                <div className='m-1'>
+                    <button onClick={() => setUrl(pages.links[pages.links.length-1].url)} className="btn btn-outline-light" disabled={pages.current_page === (pages.links.length-2)}>
+                    <i className="fas fa-angle-right"></i>
+                    </button>
+                </div>
+            </div>
+          )}
+          {/* pagination codes */}
+          </>
+        ):
+        <p className="text-center text-info">လောင်းထားသော ပွဲစဥ်များ မရှိသေးပါ။</p>
+        }
+
+
         </div>
       </div>
     </>

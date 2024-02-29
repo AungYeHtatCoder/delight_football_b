@@ -310,7 +310,7 @@
               headerBoard.classList.add(value);
             });
             headerBoard.innerHTML =
-              '<div class="kanban-title-board">' + board.title + "</div>";
+              '<div className="kanban-title-board">' + board.title + "</div>";
             // if add button is true, add button to the board
             if (addButton) {
               var btn = document.createElement("BUTTON");
@@ -320,7 +320,7 @@
                 "kanban-title-button btn btn-sm btn-white"
               );
               btn.appendChild(t);
-              //var buttonHtml = '<button class="kanban-title-button btn btn-default btn-xs">'+buttonContent+'</button>'
+              //var buttonHtml = '<button className="kanban-title-button btn btn-default btn-xs">'+buttonContent+'</button>'
               headerBoard.appendChild(btn);
               __onButtonClickHandler(btn, board.id);
             }
@@ -538,7 +538,7 @@
                 customCssIconHandler = customCssHandler + "_icon";
               }
 
-              result = "<div class='item_handle " + customCssHandler + "'><i class='item_handle " + customCssIconHandler + "'></i></div><div>" + result + "</div>";
+              result = "<div className='item_handle " + customCssHandler + "'><i className='item_handle " + customCssIconHandler + "'></i></div><div>" + result + "</div>";
             } else {
               result = self.options.itemHandleOptions.customHandler.replace("%s", result);
             }

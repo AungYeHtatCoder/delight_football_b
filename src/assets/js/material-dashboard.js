@@ -797,13 +797,13 @@ function notify(el) {
     alert.style.setProperty("opacity", "1", "important");
   }, 100);
 
-  alert.innerHTML = '<div class="d-flex mb-1">' +
-    '<div class="alert-icon me-1">' +
-    '<i class="' + el.getAttribute('data-icon') + ' mt-1"></i>' +
+  alert.innerHTML = '<div className="d-flex mb-1">' +
+    '<div className="alert-icon me-1">' +
+    '<i className="' + el.getAttribute('data-icon') + ' mt-1"></i>' +
     '</div>' +
-    '<span class="alert-text"><strong>' + el.getAttribute('data-title') + '</strong></span>' +
+    '<span className="alert-text"><strong>' + el.getAttribute('data-title') + '</strong></span>' +
     '</div>' +
-    '<span class="text-sm">' + el.getAttribute('data-content') + '</span>';
+    '<span className="text-sm">' + el.getAttribute('data-content') + '</span>';
 
   body.appendChild(alert);
   setTimeout(function() {
@@ -1133,8 +1133,8 @@ var material = {
           // on select we show the Sweet Alert modal with an input
           Swal.fire({
             title: 'Create an Event',
-            html: '<div class="form-group">' +
-              '<input class="form-control text-default" placeholder="Event Title" id="input-field">' +
+            html: '<div className="form-group">' +
+              '<input className="form-control text-default" placeholder="Event Title" id="input-field">' +
               '</div>',
             showCancelButton: true,
             customClass: {
@@ -1761,9 +1761,9 @@ var material = {
         showCloseButton: true,
         showCancelButton: true,
         focusConfirm: false,
-        confirmButtonText: '<i class="fa fa-thumbs-up"></i> Great!',
+        confirmButtonText: '<i className="fa fa-thumbs-up"></i> Great!',
         confirmButtonAriaLabel: 'Thumbs up, great!',
-        cancelButtonText: '<i class="fa fa-thumbs-down"></i>',
+        cancelButtonText: '<i className="fa fa-thumbs-down"></i>',
         cancelButtonAriaLabel: 'Thumbs down'
       })
     } else if (type == 'rtl-language') {
